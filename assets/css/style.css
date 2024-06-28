@@ -1,0 +1,267 @@
+@font-face {
+    font-family: riot-games;
+    font-weight: 50;
+    src: url(../fonts/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-Regular.otf) format(truetype);
+}
+
+/* name = riot-games */
+
+body {
+    color: white;
+    min-height: 50vh;
+    max-height: 98vh;
+    font-family: riot-games;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background: none;
+    font-size: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+#morpion-container {
+    font-family: riot-games;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: none;
+    height: 80vh;
+    width: 70%;
+    margin: auto;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 20px;
+}
+
+#menu button {
+    font-size: 45px;
+    font-weight: bolder;
+}
+
+/*button aura */
+
+#start {
+    position: relative;
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 2s;
+    font-family: riot-games;
+}
+
+#start canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#start span {
+    position: relative;
+    z-index: 1;
+}
+
+/*button aura */
+
+#pve,
+#pvp {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: riot-games;
+    padding: 5px;
+}
+
+#replay {
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    left: 50%;
+    bottom: 62px;
+    position: absolute;
+    transform: translateX(-50%);
+    font-family: riot-games;
+}
+
+.grid {
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.grid.connect-four {
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.grid.connect-four .cell {
+    width: 80px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.grid.connect-four .cell:hover {
+    background-color: #f0f0f0;
+
+}
+
+.grid.connect-four .cell[data-player="X"] {
+    background-color: #f10f0f;
+    color: #f10f0f;
+
+}
+
+.grid.connect-four .cell[data-player="O"] {
+    background-color: #f1c40f;
+    color: #f1c40f;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    width: 200px;
+    height: 200px;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    font-family: riot-games;
+}
+
+#message {
+    color: white;
+    position: absolute;
+    top: 15vh;
+    left: 59%;
+    font-size: 20px;
+}
+
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: white;
+}
+
+input:focus+.slider {
+    box-shadow: black;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+/* Animation optionnelle */
+.slider:before {
+    transition: .4s cubic-bezier(.45, 1, .4, 1);
+}
+
+/* Effet de hover */
+.switch:hover .slider {
+    box-shadow: white;
+}
+
+/* Style pour le texte ON/OFF (optionnel) */
+.slider:after {
+    content: 'M';
+    color: black;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 70%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider:after {
+    content: 'C4';
+    left: 30%;
+}
